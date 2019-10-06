@@ -1,0 +1,398 @@
+Clave: A-1
+Indicar cuál es el que falta.
+En una lista de números enteros (0 < N < 9) falta un número. Indicar de cuál se trata
+en cada caso.
+1. [2, 1, 9, 3, 8, 7, 4, 6, 0] -> 5
+2. [1, 2, 3, 4, 5, 6, 7, 8, 9] -> 0
+3. [2, 1, 9, 3, 8, 7, 4, 6, 0, 10] -> “No falta ninguno”
+
+#A-1
+def  aUno ( arr ):
+    total = 45
+    aux = 0
+    i = 0
+    for i in range ( len (arr)):
+        aux = aux + arr [i]
+    if (total == aux and len (arr) == 10 ):
+        print ( " No falta ninguno " )
+    else :
+        print ( " Falta el número " +  str (total - aux))
+
+arr = [ 2 , 1 , 9 , 3 , 8 , 7 , 4 , 6 , 0 ] # falta 5
+arr2 = [ 2 , 1 , 9 , 3 , 8 , 7 , 4 , 6 , 5 ] # falta 0
+arr3 = [ 2 , 1 , 9 , 3 , 8 , 7 , 4 , 6 , 0 , 5 ] # no falta ninguno
+
+aUno (arr)
+aUno (arr2)
+aUno (arr3)
+
+
+Clave: L - 1
+Triángulo.
+Utilizando ciclos (loops), “dibujar” el siguiente triángulo de 10 renglones de alto
+únicamente con números nones.:
+1 - 1
+2 - 13
+3 - 135
+4 - 1357
+…
+10 - 135791113151719
+
+i = 0
+n=1
+h = ''
+t = 20
+l = 0
+
+for i in range(t):
+    if n%2 != 0 and n<20 :
+         h += ' %i' %n
+         print(h)
+    n +=1
+
+Clave: L - 2
+Triángulo.
+Utilizando ciclos (loops), “dibujar” el siguiente triángulo:
+*
+***
+*****
+*******
+*********
+#L-2
+base = 5
+espacios = base - 1
+contador = 1
+for x in range(base):
+    while espacios >=0:
+        print ('%s%s%s'%((' '*espacios), ('*'*contador),(' '*espacios)))
+        espacios -=1
+        contador +=2
+
+Clave: AL - 1
+Primos.
+Dentro del rango [2, 100] de números naturales, indicar cuáles son primos y cuáles no.
+Primos: 2, 3, 5, …
+No primos: 4, 6, 8, …
+
+def isPrime(num):
+    if num < 2:
+        return False
+    for i in range(2,int(num/2+1)):
+        if num % i == 0:
+            return False
+    return True
+
+primos=[]
+noPrimos=[]
+for x in range (2,100):
+    if isPrime(x):
+        primos.append(x)
+    else:
+        noPrimos.append(x)
+print("Primos: ",primos)
+print("\nNo Primos:",noPrimos)
+
+Clave: Fn - 1
+El enésimo número par.
+Crear una función que regrese el enésimo número par.
+nthPar(1) //=> 0, El primer número par es 0
+nthPar(3) //=> 4, El tercer número par es 4 (0, 2, 4)
+nthPar(100) //=> 198
+nthPar(1298734) //=> 2597466
+
+#Fn-1
+def nPar(num):
+    return num*2-2
+
+print(nPar(1))#0
+print(nPar(3))#4
+print(nPar(100))#198
+print(nPar(1298734))#2597466
+
+Clave: Fn - 2
+El enésimo número Non
+Crear una función que regrese el enésimo número non.
+nthNon(1) //=> 1, El primer número non es 1
+nthNon(3) //=> 5, El tercer número non es 5 (1, 3, 5)
+nthNon(100) //=> 199
+nthNon(1298734) //=> 2597467
+#Fn-3
+def nNon(num):
+    return num*2-1
+
+print(nNon(1))#1
+print(nNon(3))#5
+print(nNon(100))#199
+print(nNon(1298734))#2597467
+
+Clave: A - 2
+Divisible
+Crear un programa que indique qué números de una lista son divisibles por un
+número dado. El orden en el resultado no importa.
+divisiblePor([1, 2, 3, 4, 5, 6], 2) // [2, 4, 6]
+divisiblePor([9, 12, 3, 0, 1, 4], 3) // [9, 12, 3]
+divisiblePor([10, 11, 3], 1) // [10, 11, 3]
+
+#A-2      
+a=[1,2,3,4,5,6]
+b=[9,12,3,0,1,4]
+c=[10,11,3]
+conta=1
+n=3
+for i in range(n):
+    conta=i
+    if conta==0:
+     n=2
+     print("Los numeros pertenecientes al arreglo ",a)
+     print("que son divisibles entre ",n)
+     print ("Son los siguientes:")
+     for i in range(len(a)):
+             if a[i]%n==0 and a[i]>0:
+                 print ("",a[i])
+    else:
+        if conta==1:
+         n=3
+         print("Los numeros pertenecientes al arreglo ",b)
+         print("que son divisibles entre ",n)
+         print ("Son los siguientes:")
+         for i in range(len(b)):
+                 if b[i]%n==0 and b[i]>0:
+                     print ("",b[i])
+        else:
+            if conta==2:
+             n=1
+             print("Los numeros pertenecientes al arreglo ",c)
+             print("que son divisibles entre ",n)
+             print ("Son los siguientes:")
+             for i in range(len(c)):
+                       if c[i]%n==0 and c[i]>0:
+                          print ("",c[i]) 
+
+Clave: A - 3
+Cuenta de positivos / Suma de negativos
+Dado un arreglo de números enteros, indicar el conteo de números positivos y la
+suma de los números negativos. El número 0 (cero) no cuenta.
+[1, 2, 3, 4, 5, 6, -11, -12, -13, -14, -15] -> “6 positivos, -65 la suma de negativos
+[9, -8, 2, 1, -2] -> “3 positivos, -10 la suma de negativos”
+
+#A-3
+def cuentaPosSumNeg(arr):
+    positivos = 0
+    negativos = 0
+    for i in range(0,len(arr)):
+        if arr[i] < 0:
+            negativos += arr[i]
+        else:
+            positivos +=1
+    print(positivos," positivos, ",negativos," es la suma de los negativos")
+
+prueba1 = [1,2,3,4,5,6,-11,-12,-13,-14,-15]#6 y -65
+
+cuentaPosSumNeg(prueba1)
+
+Clave: A - 4
+Promedios
+En una lista de calificaciones, determinar el porcentaje de alumnos que aprobaron el
+curso. Se considera una calificación aprobatoria si es igual o mayor a 6.
+[
+[9, 8, 7, 5, 2, 10],
+[5, 5, 5, 5, 5, 5],
+[0, 1, 2],
+[4, 2, 4, 5, 7, 8],
+[1, 1, 1, 1]
+] // 20 %
+[
+[6],
+[10, 10, 5, 10, 10, 10],
+[9, 8, 9, 8, 7, 6],
+[10],
+[6, 7, 8, 9, 9, 6],
+] // 60%
+
+
+def Prom(lis):
+    suma = 0
+    for i in range(len(lis)):
+        suma += lis[i]
+    return suma/6
+def Promedios(a,b,c,d,e):
+    conta = 0
+    if a >= 6:
+        conta += 1
+    if b >= 6:
+        conta += 1
+    if c >= 6:
+        conta += 1
+    if d >= 6:
+        conta += 1
+    if e >= 6:
+        conta += 1
+    return (conta/5)*100
+
+def main():
+    #Lis = [[9, 8, 7, 5, 2, 10],[5, 5, 5, 5, 5, 5],[0, 1, 2],[4, 2, 4, 5, 7, 8],[1, 1, 1, 1]]
+    Lis = [[6],[10, 10, 5, 10, 10, 10],[9, 8, 9, 8, 7, 6],[10],[6, 7, 8, 9, 9, 6]]
+    print(str(Promedios(Prom(Lis[0]),Prom(Lis[1]),Prom(Lis[2]),Prom(Lis[3]),Prom(Lis[4])))+"%")
+if _name_ == '_main_':
+    main()
+
+Clave: A - 5
+Divisible
+Crear un programa que indique qué números de una lista son divisibles por un
+número dado. El orden en el resultado no importa.
+divisiblePor([1, 2, 3, 4, 5, 6], 2) // [2, 4, 6]
+divisiblePor([9, 12, 3, 0, 1, 4], 3) // [9, 12, 3]
+divisiblePor([10, 11, 3], 1) // [10, 11, 3]
+
+def Divisores(num):
+    arreglo=[9,12,3,0,1,4] #[1,2,3,4,5,6]   [9,12,3,0,1,4]    [10,11,3]
+    arrAux=[]
+    aux=0
+    for i in range(len(arreglo)):
+        if((arreglo[i]%num)==0):
+            if(arreglo[i]!=0):
+                arrAux.append(arreglo[i])
+                aux=aux+1
+    if(range(len(arrAux))==0):
+        print("No hay ningun valor divisible entre "+num)
+    else:
+        print(arrAux)
+        #return arrAux
+
+Clave: Fn - 3
+Únicos
+Crear una función que remueva los elementos repetidos en un arreglo y regrese un nuevo arreglo con los elementos restantes.
+unicos([9, 3, 1, 3, 9, 2]) // [1, 2]
+unicos([6, 2, 2, 2, 1, 8]) // [6, 1, 8]
+unicos([1]) // [1]
+
+'''
+Version Fn-3
+Funcion que elimine los elementos repetido
+'''
+def unicos(arr):
+    resultado = []
+    bandera = 0
+    for x in range (0,len(arr)):
+        bandera = 0
+        for y in range (0,len(arr)):
+            if arr[y] == arr[x]:
+                bandera +=1
+        if(bandera == 1):
+            resultado.append(arr[x])
+    return resultado
+
+print(unicos([9, 3, 1, 3, 9, 2])) # [1, 2]
+print(unicos([6, 2, 2, 2, 1, 8])) #[6, 1, 8]
+print(unicos([1])) #[1]
+Clave: Fn - 4
+Suma de promedios
+Programar una función que sume los promedios de los arreglos en una lista.
+promedio([[1, 2, 2,2, 2, 1], [2, 1]]) // 3.25
+promedio([[10, 5], [6, 2, 2], [1]]) // 11.8
+promedio([[3, 4, 1, 3, 5, 1, 4], [21, 54, 33, 21, 77]]) // 44.2
+
+#FN-4
+def suma_promedios(lista1,lista2,lista3):
+    for i in range(len(lista1)): #Ciclo para recorrer el arreglo
+        if i == 0 : #Si solo hay un elemento en la lista toma ese para calcular el promedio
+           promediores = lista1[i] 
+           pivote = lista1[i]
+        if i != 0 : #Si hay mas de un solo elemento reliza la sumatoria de los elementos
+           promediores = pivote+lista1[i]
+           pivote = promediores
+
+    promediores1 = promediores / len(lista1)     #Caclculaelpromedio
+    print("Este es el primer promedio "+ str(promediores1))
+
+    for j in range(len(lista2)):
+        if j == 0 :
+           promediores = lista2[j]
+           pivote = lista2[j]
+        if j != 0 :
+           promediores = pivote+lista2[j]
+           pivote = promediores
+
+    promediores2 = promediores / len(lista2)
+    print("Este es el segundo promedio " + str(promediores2))
+
+    for k in range(len(lista3)):
+        if k == 0 :
+           promediores = lista3[k]
+           pivote = lista3[k]
+        if k != 0:
+           promediores = pivote+lista3[k]
+           pivote = promediores
+
+    promediores3 = promediores / len(lista3)
+    print("Este es el segundo promedio " + str(promediores3))
+
+    sumaTotal = promediores1 + promediores2 + promediores3 #Calcula la suma de todos los promedios en la funcion
+    print("Esta es la suma total de los promedios: " + str(sumaTotal))
+
+suma_promedios(a,b,c) #Manda a llamar a la funcion
+
+Clave: Fn - 5
+Encuentra a los líderes
+Un número será “ líder ” si es mayor al promedio del resto en una lista. Crear una
+función que dado un arreglo de al menos 3 números enteros (mayores o iguales a 0),
+regrese el número líder.
+#Fn - 5
+lider([3, 2, 10, 1]) // 10 (promedio del resto: (3+2+1)/3)
+lider([5, 0, 1, 2]) // 5
+lider([1, 1, 4, 1]) // 4
+
+def promedioExepto(valores,pos):
+    resultado = 0.0
+    for x in range(0,len(valores)):
+        if x != pos:
+            resultado = resultado + valores[x]
+    regresa=resultado/(len(valores)-1)      
+    return regresa
+
+def sacaLider(listas):
+    anterior=-1
+    resultado=[]
+    for i in range(0,len(listas)):
+        if listas[i] > promedioExepto(listas,i):
+            resultado.append(listas[i])
+            anterior=listas[i]
+    if anterior >= 0:
+        return resultado
+    else:
+        print("No hay lider")
+
+
+a = [3,2,10,1]#10
+b=[5,0,1,2]#5
+c=[1,1,4,1]#4
+
+#print(promedioExepto(lider,0))
+print(sacaLider(a))
+print(sacaLider(b))
+print(sacaLider(c))
+
+Clave: Fn - 6
+Suma de diferencias
+Escribir una función que sume las diferencias entre números consecutivos en un
+arreglo. Los números en el arreglo se encuentran ordenados descendentemente.
+sumDif([10, 2, 1]) // (10 - 2) + (2 - 1) = 9
+sumDif([11, 10, 5]) // (11 - 10) + (10 - 5) = 6
+sumDif([4, 3, 2, 1]) // (4 - 3) + (3 - 2) + (2 - 1)= 3
+
+#Fn-6
+def sumDif(arr):
+    for i in range (0,len(arr)):
+        diferencia = arr[0]
+        diferencia = diferencia - arr[i]
+    print (diferencia)
+
+prueba1 = [10,2,1]#9
+prueba2 = [11,10,5]#6
+prueba3 = [4,3,2,1]#3
+prueba4 = [1,2,3,4]#-3
+
+sumDif(prueba1)
+sumDif(prueba2)
+sumDif(prueba3)
+sumDif(prueba4)
